@@ -24,29 +24,29 @@ const pokémon = Object.freeze([
         { "id": 148, "name": "Dragonair",  "types": ["dragon"] }
     ]);
 
-    const pokemonIdsDivBy3 = pokémon.filter( pokemon => pokemon.id % 3 === 0 ).map( pokemon => pokemon.id );
-    console.log(pokemonIdsDivBy3);
+    const pIdsDivBy3 = pokémon.filter( p => p.id % 3 === 0 ).map( p => p.id );
+    console.log(pIdsDivBy3);
 
-    const pokemonFireTypes = pokémon.filter(pokemon => pokemon.types.includes("fire")).map(pokemon => pokemon.name);
-    console.log(pokemonFireTypes);
+    const pFireType = pokémon.filter(p => p.types.includes("fire")).map(p => p.name);
+    console.log(pFireType);
     
-    const pokemonDualTypes = pokémon.filter(pokemon => pokemon.types.length > 1).map(pokemon => pokemon.name);
-    console.log(pokemonDualTypes);
+    const pDualType = pokémon.filter(p => p.types.length > 1).map(p => p.name);
+    console.log(pDualType);
 
-    const pokemonNames = pokémon.map(pokemon => pokemon.name);
-    console.log(pokemonNames)
+    const pNames = pokémon.map(p => p.name);
+    console.log(pNames)
 
-    const pokemonIdBiggerThan99 = pokémon.filter(pokemon => pokemon.id >= 99).map(pokemon => `ID: ${pokemon.id} - ${pokemon.name}`)
-    console.log(pokemonIdBiggerThan99)
+    const pIdBiggerThan99 = pokémon.filter(p => p.id >= 99).map(p => `ID: ${p.id} - ${p.name}`)
+    console.log(pIdBiggerThan99)
 
-    const pokemonOnlyPoisonType = pokémon.filter(pokemon => pokemon.types.includes("poison") && pokemon.types.length < 2).map(pokemon => pokemon.name);
-    console.log(pokemonOnlyPoisonType)
+    const pOnlyPoisonType = pokémon.filter(p => p.types.includes("poison") && p.types.length < 2).map(p => p.name);
+    console.log(pOnlyPoisonType)
 
-    const pokemonFirstTypeOfFlying = pokémon.filter(pokemon => pokemon.types.includes("flying") && pokemon.types.length > 1).map(pokemon => pokemon.types[0]);
-    console.log(pokemonFirstTypeOfFlying)
+    const pFirstTypeOfFlying = pokémon.filter(p => p.types.includes("flying") && p.types.length > 1).map(p => p.types[0]);
+    console.log(pFirstTypeOfFlying)
 
-    const pokemonNormalCount = pokémon.filter(pokemon => pokemon.types.includes("normal")).map(pokemon => pokemon.name)
+    const pNormalCount = pokémon.filter(p => p.types.includes("normal")).map(p => p.name)
 
-    console.log(pokemonNormalCount.length);
-    console.log(pokemonNormalCount);
+    console.log(pNormalCount.length);
+    console.log(pNormalCount);
 
