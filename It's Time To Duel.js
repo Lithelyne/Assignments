@@ -12,6 +12,9 @@ class Unit extends Card {
         this.resilience = resilience;
     }
     attack(target) {
+
+        //instanceof checks to see if this is part of that class.
+
         if (target instanceof Unit) {
             target.resilience -= this.power;
             console.log(`${this.name} attacked ${target.name} for ${this.power} damage!`);
@@ -31,7 +34,9 @@ class Effect extends Card {
     }
 
     play(target) {
+
         //instanceof checks to see if this is part of that class.
+        
         if (target instanceof Unit) {
             target[this.stat] += this.magnitude;
             console.log(`${this.name} played on ${target.name}. ${this.text}.`);
