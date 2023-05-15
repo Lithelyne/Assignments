@@ -29,7 +29,7 @@ const Main = () => {
     return (
         <div>
             <CreateForm onCreate={addToDom}/>
-            <h3>Product List</h3>
+            <h3 style={{ borderBottom: '1px solid black', paddingBottom: '10px', borderTop: '1px solid black', paddingTop: '10px' }}>All Products:</h3>
             <ProductTable productList = {productList} onDelete={removeFromDom} />
         </div>
     )

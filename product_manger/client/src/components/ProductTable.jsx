@@ -17,7 +17,7 @@ const ProductTable = (props) =>{
 
 
     return (
-        <div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <table>
                 <thead>
                     <tr>

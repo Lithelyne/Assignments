@@ -8,7 +8,7 @@ import {Routes, Route} from "react-router-dom"
 function App() {
   return (
     <div className="App">
-      <h1>Product Manager</h1>
+      <h1 style={{ borderBottom: '1px solid black', paddingBottom: '10px', borderTop: '1px solid black', paddingTop: '10px' }}>Product Manager</h1>
 
       <Routes>
         <Route path="/" element={<Main />}/>
