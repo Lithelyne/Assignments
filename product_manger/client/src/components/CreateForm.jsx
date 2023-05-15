@@ -1,22 +1,18 @@
 import React, {useState} from "react";
 import axios from "axios"
-import {useNavigate} from 'react-router-dom'
 
 
 
-const CreateForm = () => {
+const CreateForm = (props) => {
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
-
-    const navigate = useNavigate()
 
     const handleSubmit=(e)=>{
         e.preventDefault();
         axios.post(`http://localhost:8000/api/Products`, {title, price, description})
             .then(response=>{
-                console.log(response.data)
-                navigate(`/Products`)
+                props.onCreate(response.data)
             })
             .catch(err=>console.log(err))
     }
@@ -39,7 +35,7 @@ const CreateForm = () => {
                 <input type="text" name="description" value={description}
                     onChange={e=>setDescription(e.target.value)} />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Create New Product</button>
         </form>
     )
 }
