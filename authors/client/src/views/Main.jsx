@@ -21,6 +21,7 @@ const Main = () => {
         setAuthorsList(filteredList)
     }
 
+    //add from dom if its one page and you want to update while having a create form on that page
 
 
     return (
