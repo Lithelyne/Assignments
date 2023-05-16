@@ -6,6 +6,9 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 const UpdatePage = () => {
     const { id } = useParams()
 
+    const [errors, setErrors] = useState([])
+
+
     const navigate = useNavigate();
 
     const [name, setName] = useState("")
@@ -26,7 +29,15 @@ const UpdatePage = () => {
                 console.log(response.data)
                 navigate(`/authors/${id}`)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                const errResponse = err.response.data.errors;
+                const errMsgArr = []
+
+                for (const eachKey in errResponse) {
+                    errMsgArr.push(errResponse[eachKey]["message"])
+                }
+                setErrors(errMsgArr);
+            })
     }
 
 
@@ -45,7 +56,13 @@ const UpdatePage = () => {
                 </div>
                 <button onClick={() => navigate('/')}>Cancel</button>
                 <button type="submit" style={{ margin: '10px' }}>Submit</button>
-
+                {
+                    errors.map((eachErr, idx) => (
+                        <p key={idx} style={{ color: "red" }}>
+                            {eachErr}
+                        </p>
+                    ))
+                }
             </form>
         </div>
     )

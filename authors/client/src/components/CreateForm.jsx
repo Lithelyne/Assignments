@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 const CreateForm = (props) => {
     const [name, setName] = useState("")
 
+    const [errors, setErrors] = useState([])
+
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -15,7 +17,15 @@ const CreateForm = (props) => {
             .then(response => {
                 props.onCreate(response.data)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                const errResponse = err.response.data.errors;
+                const errMsgArr = []
+
+                for (const eachKey in errResponse) {
+                    errMsgArr.push(errResponse[eachKey]["message"])
+                }
+                setErrors(errMsgArr);
+            })
     }
 
 
@@ -29,11 +39,18 @@ const CreateForm = (props) => {
                         name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        
+
                     />
                 </div>
                 <button onClick={() => navigate('/')} style={{ margin: '10px' }}>Cancel</button>
                 <button type="submit" style={{ margin: '10px' }}>Submit</button>
+                {
+                    errors.map((eachErr, idx) => (
+                        <p key={idx} style={{ color: "red" }}>
+                            {eachErr}
+                        </p>
+                    ))
+                }
             </form>
         </div>
 
